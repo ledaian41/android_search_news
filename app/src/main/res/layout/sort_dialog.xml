@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="36sp"
+    android:paddingRight="36sp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:paddingTop="8sp"
+            android:text="@string/begin_date"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/edtDateTime"
+            android:layout_width="160sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/colorPrimary"
+            android:cursorVisible="false" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:paddingTop="8sp"
+            android:text="@string/sort_order"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/spinnerOrder"
+            android:layout_width="160sp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end|bottom"
+            android:layout_marginTop="10dp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:paddingTop="8sp"
+            android:text="@string/news_desk_values"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end|bottom"
+            android:layout_marginTop="8sp"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/checkArts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="@string/arts"
+                android:textColor="@android:color/black" />
+
+            <CheckBox
+                android:id="@+id/checkFashionStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="@string/fashion_and_style"
+                android:textColor="@android:color/black" />
+
+            <CheckBox
+                android:id="@+id/checkSports"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:foregroundTint="@color/colorPrimary"
+                android:text="@string/sports"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

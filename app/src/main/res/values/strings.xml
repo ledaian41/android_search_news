@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">SearchNews</string>
+    <string name="text_sample">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editor</string>
+    <string name="search">Search</string>
+    <string name="sort">Sort</string>
+    <string name="begin_date">Begin Date</string>
+    <string name="sort_order">Sort</string>
+    <string name="news_desk_values">News_desk_values</string>
+    <string name="arts">Arts</string>
+    <string name="fashion_and_style">Fashion and Style</string>
+    <string name="sports">Sports</string>
+    <string name="search_news">Search News</string>
+    <string-array name="sort_order">
+        <item>newest</item>
+        <item>oldest</item>
+    </string-array>
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="com.example.anlee.searchnews.activity.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        app:titleTextColor="@android:color/white" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolBar">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvArticle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <com.victor.loading.rotate.RotateLoading
+        android:id="@+id/pbLoading"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:layout_centerInParent="true"
+        app:loading_color="@color/colorPrimary"
+        app:loading_width="5dp" />
+
+    <com.victor.loading.rotate.RotateLoading
+        android:id="@+id/pbLoadMore"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        app:loading_color="@color/colorPrimary" />
+</RelativeLayout>
