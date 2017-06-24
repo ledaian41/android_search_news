@@ -1,10 +1,8 @@
 package com.example.anlee.searchnews.viewholder;
 
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.TextView;
-
-import com.example.anlee.searchnews.R;
+import com.example.anlee.searchnews.databinding.ItemArticleNoImageBinding;
+import com.example.anlee.searchnews.model.Article;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -15,11 +13,18 @@ import butterknife.ButterKnife;
 
 public class NoImageViewHolder extends RecyclerView.ViewHolder {
 
-    @BindView(R.id.tvSnippet)
-    public TextView tvSnippet;
+//    @BindView(R.id.tvSnippet)
+//    public TextView tvSnippet;
 
-    public NoImageViewHolder(View itemView) {
-        super(itemView);
-        ButterKnife.bind(this, itemView);
+    public final ItemArticleNoImageBinding binding;
+
+    public NoImageViewHolder(ItemArticleNoImageBinding binding) {
+        super(binding.getRoot());
+        this.binding = binding;
+    }
+
+    public void bind(Article article){
+        binding.setArticle(article);
+        binding.executePendingBindings();
     }
 }

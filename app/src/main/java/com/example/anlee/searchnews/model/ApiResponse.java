@@ -4,7 +4,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Dell on 6/21/2017.
+ * Created by An Lee on 6/21/2017.
  */
 
 public class ApiResponse {

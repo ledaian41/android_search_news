@@ -1,7 +1,5 @@
 package com.example.anlee.searchnews.activity;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
@@ -20,7 +18,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 

@@ -1,9 +1,16 @@
 package com.example.anlee.searchnews.model;
 
+import android.app.Activity;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
+
+import com.example.anlee.searchnews.activity.MainActivity;
+import com.example.anlee.searchnews.utils.UiUtils;
+
 import static com.example.anlee.searchnews.model.Constant.BASE_URL_IMAGE;
 
 /**
- * Created by Dell on 6/21/2017.
+ * Created by An Lee on 6/21/2017.
  */
 
 public class Media {
@@ -29,7 +36,7 @@ public class Media {
     }
 
     public int getWidth() {
-        return width;
+        return UiUtils.getScreenWidth() / 2;
     }
 
     public void setWidth(int width) {
@@ -37,7 +44,7 @@ public class Media {
     }
 
     public int getHeight() {
-        return height;
+        return (UiUtils.getScreenWidth() / 2) * height / width;
     }
 
     public void setHeight(int height) {

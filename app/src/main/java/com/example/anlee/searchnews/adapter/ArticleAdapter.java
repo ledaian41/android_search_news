@@ -1,9 +1,8 @@
 package com.example.anlee.searchnews.adapter;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -12,10 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bumptech.glide.Glide;
 import com.example.anlee.searchnews.R;
+import com.example.anlee.searchnews.databinding.ItemArticleBinding;
+import com.example.anlee.searchnews.databinding.ItemArticleNoImageBinding;
 import com.example.anlee.searchnews.model.Article;
-import com.example.anlee.searchnews.model.Media;
 import com.example.anlee.searchnews.viewholder.NoImageViewHolder;
 import com.example.anlee.searchnews.viewholder.NormalViewHolder;
 
@@ -51,12 +50,17 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        LayoutInflater layoutInflater = LayoutInflater.from(context);
         if (viewType == NO_IMAGE) {
-            return new NoImageViewHolder(LayoutInflater.from(context)
-                    .inflate(R.layout.item_article_no_image, parent, false));
+            return new NoImageViewHolder((ItemArticleNoImageBinding) DataBindingUtil
+                    .inflate(layoutInflater, R.layout.item_article_no_image, parent, false));
+//            return new NoImageViewHolder(LayoutInflater.from(context)
+//                    .inflate(R.layout.item_article_no_image, parent, false));
         } else {
-            return new NormalViewHolder(LayoutInflater.from(context)
-                    .inflate(R.layout.item_article, parent, false));
+            return new NormalViewHolder((ItemArticleBinding) DataBindingUtil
+                    .inflate(layoutInflater, R.layout.item_article, parent, false));
+//            return new NormalViewHolder(LayoutInflater.from(context)
+//                    .inflate(R.layout.item_article, parent, false));
         }
     }
 
@@ -64,9 +68,11 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         final Article article = articles.get(position);
         if (holder instanceof NoImageViewHolder) {
-            bindNoImageViewHolder((NoImageViewHolder) holder, article);
+            ((NoImageViewHolder) holder).bind(article);
+//            bindNoImageViewHolder((NoImageViewHolder) holder, article);
         } else if (holder instanceof NormalViewHolder) {
-            bindNormalViewHolder((NormalViewHolder) holder, article);
+            ((NormalViewHolder) holder).bind(article, context);
+//            bindNormalViewHolder((NormalViewHolder) holder, article);
         }
         if (position == articles.size() - 1 && listener != null) {
             listener.onLoadMore();
@@ -85,23 +91,24 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         context.startActivity(i);
     }
 
-    private void bindNoImageViewHolder(NoImageViewHolder holder, Article article) {
-        holder.tvSnippet.setText(article.getSnippet());
-    }
+//    private void bindNoImageViewHolder(NoImageViewHolder holder, Article article) {
+//        holder.tvSnippet.setText(article.getSnippet());
+//        holder.bind(article);
+//    }
+//
+//    private void bindNormalViewHolder(NormalViewHolder holder, Article article) {
+//        holder.tvSnippet.setText(article.getSnippet());
+//        setImage(holder, article);
+//    }
 
-    private void bindNormalViewHolder(NormalViewHolder holder, Article article) {
-        holder.tvSnippet.setText(article.getSnippet());
-        setImage(holder, article);
-    }
-
-    private void setImage(NormalViewHolder holder, Article article) {
-        Media media = article.getMultimedia().get(0);
-        Glide.with(context)
-                .load(media.getUrl())
-                .into(holder.ivCover);
-        holder.ivCover.getLayoutParams().height = media.getHeight();
-        holder.ivCover.getLayoutParams().width = media.getWidth();
-    }
+//    private void setImage(NormalViewHolder holder, Article article) {
+//        Media media = article.getMultimedia().get(0);
+//        Glide.with(context)
+//                .load(media.getUrl())
+//                .into(holder.ivCover);
+//        holder.ivCover.getLayoutParams().height = media.getHeight();
+//        holder.ivCover.getLayoutParams().width = media.getWidth();
+//    }
 
     public void setState(Bundle state) {
         state.putParcelableArrayList(STATE, (ArrayList<? extends Parcelable>) articles);
