@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
-        app:titleTextColor="@android:color/white" />
+        app:titleTextColor="@android:color/white"
+        app:subtitleTextColor="@android:color/white"/>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeContainer"
@@ -28,16 +29,16 @@
 
     <com.victor.loading.rotate.RotateLoading
         android:id="@+id/pbLoading"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
+        android:layout_width="@dimen/progress_bar_size"
+        android:layout_height="@dimen/progress_bar_size"
         android:layout_centerInParent="true"
         app:loading_color="@color/colorPrimary"
         app:loading_width="5dp" />
 
     <com.victor.loading.rotate.RotateLoading
         android:id="@+id/pbLoadMore"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
+        android:layout_width="@dimen/progress_bar_size"
+        android:layout_height="@dimen/progress_bar_size"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         app:loading_color="@color/colorPrimary" />

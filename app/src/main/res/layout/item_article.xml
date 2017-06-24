@@ -13,8 +13,8 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4sp"
-        app:cardMaxElevation="4sp"
+        android:layout_margin="@dimen/small_space"
+        app:cardMaxElevation="@dimen/small_space"
         app:cardUseCompatPadding="true"
         tools:layout_height="200sp"
         tools:layout_width="200sp">
@@ -35,7 +35,7 @@
                 android:id="@+id/tvSnippet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4sp"
+                android:layout_margin="@dimen/small_space"
                 android:ellipsize="end"
                 android:maxLines="3"
                 android:text="@{article.snippet}"

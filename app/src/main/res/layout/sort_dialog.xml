@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingLeft="36sp"
-    android:paddingRight="36sp">
+    android:paddingLeft="@dimen/large_space"
+    android:paddingRight="@dimen/large_space">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -15,17 +15,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:paddingTop="8sp"
+            android:paddingTop="@dimen/medium_space"
             android:text="@string/begin_date"
             android:textColor="@android:color/black"
-            android:textSize="14sp" />
+            android:textSize="@dimen/normal_text" />
 
         <EditText
             android:id="@+id/edtDateTime"
-            android:layout_width="160sp"
+            android:layout_width="@dimen/spinner_size"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/colorAccent"
             android:cursorVisible="false" />
 
     </FrameLayout>
@@ -38,17 +38,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:paddingTop="8sp"
+            android:paddingTop="@dimen/medium_space"
             android:text="@string/sort_order"
             android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:textSize="@dimen/normal_text" />
 
         <Spinner
             android:id="@+id/spinnerOrder"
-            android:layout_width="160sp"
+            android:layout_width="@dimen/spinner_size"
             android:layout_height="match_parent"
             android:layout_gravity="end|bottom"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="@dimen/big_space" />
 
     </FrameLayout>
 
@@ -60,17 +60,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:paddingTop="8sp"
+            android:paddingTop="@dimen/medium_space"
             android:text="@string/news_desk_values"
             android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:textSize="@dimen/normal_text" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="end|bottom"
-            android:layout_marginTop="8sp"
+            android:layout_marginTop="@dimen/medium_space"
             android:orientation="vertical">
 
             <CheckBox
@@ -79,7 +79,8 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/arts"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/normal_text" />
 
             <CheckBox
                 android:id="@+id/checkFashionStyle"
@@ -87,7 +88,8 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/fashion_and_style"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/normal_text" />
 
             <CheckBox
                 android:id="@+id/checkSports"
@@ -96,7 +98,8 @@
                 android:backgroundTint="@color/colorPrimary"
                 android:foregroundTint="@color/colorPrimary"
                 android:text="@string/sports"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/normal_text" />
         </LinearLayout>
 
     </FrameLayout>

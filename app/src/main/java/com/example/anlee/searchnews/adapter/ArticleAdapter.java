@@ -1,11 +1,15 @@
 package com.example.anlee.searchnews.adapter;
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,13 +58,9 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         if (viewType == NO_IMAGE) {
             return new NoImageViewHolder((ItemArticleNoImageBinding) DataBindingUtil
                     .inflate(layoutInflater, R.layout.item_article_no_image, parent, false));
-//            return new NoImageViewHolder(LayoutInflater.from(context)
-//                    .inflate(R.layout.item_article_no_image, parent, false));
         } else {
             return new NormalViewHolder((ItemArticleBinding) DataBindingUtil
                     .inflate(layoutInflater, R.layout.item_article, parent, false));
-//            return new NormalViewHolder(LayoutInflater.from(context)
-//                    .inflate(R.layout.item_article, parent, false));
         }
     }
 
@@ -69,10 +69,8 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         final Article article = articles.get(position);
         if (holder instanceof NoImageViewHolder) {
             ((NoImageViewHolder) holder).bind(article);
-//            bindNoImageViewHolder((NoImageViewHolder) holder, article);
         } else if (holder instanceof NormalViewHolder) {
             ((NormalViewHolder) holder).bind(article, context);
-//            bindNormalViewHolder((NormalViewHolder) holder, article);
         }
         if (position == articles.size() - 1 && listener != null) {
             listener.onLoadMore();
@@ -86,29 +84,31 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     public void launchComposeView(Article article) {
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(article.getUrl()));
-        context.startActivity(i);
+        // Use a CustomTabsIntent.Builder to configure CustomTabsIntent.
+        String url = article.getUrl();
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        setUpShareButton(builder);
+        // set toolbar color and/or setting custom actions before invoking build()
+        // Once ready, call CustomTabsIntent.Builder.build() to create a CustomTabsIntent
+        CustomTabsIntent customTabsIntent = builder.build();
+        // and launch the desired Url with CustomTabsIntent.launchUrl()
+        customTabsIntent.launchUrl(context, Uri.parse(url));
     }
 
-//    private void bindNoImageViewHolder(NoImageViewHolder holder, Article article) {
-//        holder.tvSnippet.setText(article.getSnippet());
-//        holder.bind(article);
-//    }
-//
-//    private void bindNormalViewHolder(NormalViewHolder holder, Article article) {
-//        holder.tvSnippet.setText(article.getSnippet());
-//        setImage(holder, article);
-//    }
+    private void setUpShareButton(CustomTabsIntent.Builder builder) {
+        builder.addDefaultShareMenuItem();
 
-//    private void setImage(NormalViewHolder holder, Article article) {
-//        Media media = article.getMultimedia().get(0);
-//        Glide.with(context)
-//                .load(media.getUrl())
-//                .into(holder.ivCover);
-//        holder.ivCover.getLayoutParams().height = media.getHeight();
-//        holder.ivCover.getLayoutParams().width = media.getWidth();
-//    }
+        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_share);
+        int requestCode = 100;
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, "http://www.codepath.com");
+        PendingIntent pendingIntent = PendingIntent.getActivity(context,
+                requestCode,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setActionButton(bitmap, "Share Link", pendingIntent, true);
+    }
 
     public void setState(Bundle state) {
         state.putParcelableArrayList(STATE, (ArrayList<? extends Parcelable>) articles);

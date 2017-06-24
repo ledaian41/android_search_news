@@ -342,7 +342,7 @@ public class MainActivity extends AppCompatActivity {
                 now.get(Calendar.DAY_OF_MONTH)
         );
         dpd.setMaxDate(now);
-        dpd.setAccentColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        dpd.setAccentColor(ContextCompat.getColor(this, R.color.colorAccent));
         dpd.show(getFragmentManager(), "Datepickerdialog");
     }
 
