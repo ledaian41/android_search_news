@@ -45,8 +45,9 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
+[New UI version 2.0](http://i.imgur.com/TIPPLvQ.gif)
 
-<img src='http://i.imgur.com/TIPPLvQ.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/zTahOFQ.gif' title='Video Walkthrough' width='' alt='Video Walkthrough verion 1.0' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
